@@ -293,9 +293,7 @@ class MibInstrumController(AbstractMibInstrumController):
 
         for idx, varBind in enumerate(varBinds):
             try:
-                # TODO: managed objects to run asynchronously
-                #mgmtFun(varBind, idx=idx, **context)
-                self._flipFlopFsmCb(mgmtFun(varBind, idx=idx, **context), idx=idx, **context)
+                mgmtFun(varBind, idx=idx, **context)
 
             except error.SmiError:
                 exc = sys.exc_info()
